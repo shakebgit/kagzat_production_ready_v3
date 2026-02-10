@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kagzat - कानूनी दस्तावेज़ आसानी से बनाएं</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+        * { font-family: 'Noto Sans Devanagari', sans-serif; }
+        html { scroll-behavior: smooth; }
+    </style>
+
+<style>
+body{font-size:15px;}
+.text-xl{font-size:1rem!important;}
+.text-2xl{font-size:1.2rem!important;}
+.text-3xl{font-size:1.4rem!important;}
+.text-4xl{font-size:1.7rem!important;}
+.text-5xl{font-size:2rem!important;}
+</style>
+
+</head>
+<body class="bg-white text-gray-900">
+    
+    <!-- Navigation -->
+    <nav class="border-b border-gray-200 sticky top-0 bg-white z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-3xl font-bold text-blue-600">Kagzat</a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 text-lg font-medium" id="nav1">होम</a>
+                    <a href="app.html" class="text-gray-700 hover:text-blue-600 text-lg font-medium" id="nav2">दस्तावेज़ बनाएं</a>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-600 text-lg font-medium" id="nav3">हमारे बारे में</a>
+                    <a href="lawyers.html" class="text-gray-700 hover:text-blue-600 text-lg font-medium" id="nav4">वकील पैनल</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-600 text-lg font-medium" id="nav5">संपर्क</a>
+                </div>
+                
+                <!-- Language Toggle (link style) -->
+                <button onclick="toggleLanguage()" class="hidden md:block text-gray-700 hover:text-blue-600 text-lg font-medium underline" id="langToggle">
+                    English
+                </button>
+                
+                <a href="app.html" class="hidden md:block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 text-lg" id="navCTA">शुरू करें →</a>
+                
+                <button onclick="toggleMobileMenu()" class="md:hidden">
+                    <svg class="w-8 h-8 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200 bg-white">
+            <div class="px-6 py-6 space-y-5">
+                <a href="index.html" class="block text-gray-700 text-xl font-medium" id="mobNav1">होम</a>
+                <a href="app.html" class="block text-gray-700 text-xl font-medium" id="mobNav2">दस्तावेज़ बनाएं</a>
+                <a href="about.html" class="block text-gray-700 text-xl font-medium" id="mobNav3">हमारे बारे में</a>
+                <a href="lawyers.html" class="block text-gray-700 text-xl font-medium" id="mobNav4">वकील पैनल</a>
+                <a href="contact.html" class="block text-gray-700 text-xl font-medium" id="mobNav5">संपर्क</a>
+                <button onclick="toggleLanguage()" class="text-blue-600 hover:text-blue-700 text-xl font-medium underline" id="mobileLangToggle">
+                    English
+                </button>
+                <a href="app.html" class="block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-center text-xl mt-4" id="mobCTA">शुरू करें →</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="max-w-5xl mx-auto px-6 py-24 md:py-32 text-center">
+        <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight" id="heroTitle">
+            कानूनी दस्तावेज़<br class="md:hidden"> 5 मिनट में बनाएं
+        </h1>
+        <p class="text-2xl md:text-3xl text-gray-600 mb-12 leading-relaxed max-w-3xl mx-auto" id="heroSubtitle">
+            शपथपत्र, एनओसी और अन्य कागज़ात<br>बिल्कुल मुफ्त
+        </p>
+        <a href="app.html" class="inline-block bg-blue-600 text-white px-12 py-5 rounded-lg font-bold text-2xl hover:bg-blue-700 shadow-lg" id="heroCTA">
+            अभी बनाएं →
+        </a>
+    </section>
+
+    <!-- Features -->
+    <section class="bg-gray-50 py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-20" id="featTitle">क्यों चुनें Kagzat?</h2>
+            <div class="grid md:grid-cols-3 gap-16">
+                <div class="text-center">
+                    <div class="text-6xl mb-6">⚡</div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4" id="feat1Title">तेज़ और आसान</h3>
+                    <p class="text-xl text-gray-600 leading-relaxed" id="feat1Desc">केवल 5 मिनट में दस्तावेज़ तैयार। कोई झंझट नहीं।</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-6xl mb-6">✓</div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4" id="feat2Title">कानूनी रूप से मान्य</h3>
+                    <p class="text-xl text-gray-600 leading-relaxed" id="feat2Desc">वकीलों द्वारा जांचे गए फॉर्मेट। हर बैंक और कोर्ट में मान्य।</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-6xl mb-6">₹</div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4" id="feat3Title">बिल्कुल मुफ्त</h3>
+                    <p class="text-xl text-gray-600 leading-relaxed" id="feat3Desc">कोई छुपा हुआ शुल्क नहीं। पूरी तरह से निःशुल्क सेवा।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-20" id="howTitle">कैसे काम करता है?</h2>
+            <div class="space-y-16">
+                <div class="flex items-start gap-8">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-3xl font-bold">1</div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3" id="step1Title">फॉर्म भरें</h3>
+                        <p class="text-xl text-gray-600 leading-relaxed" id="step1Desc">अपनी जानकारी दर्ज करें। आधार अपलोड करके ऑटो-फिल भी कर सकते हैं।</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-8">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-3xl font-bold">2</div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3" id="step2Title">प्रीव्यू देखें</h3>
+                        <p class="text-xl text-gray-600 leading-relaxed" id="step2Desc">लाइव प्रीव्यू में अपना दस्तावेज़ देखें। सब कुछ सही है या नहीं जांचें।</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-8">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-3xl font-bold">3</div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3" id="step3Title">डाउनलोड करें</h3>
+                        <p class="text-xl text-gray-600 leading-relaxed" id="step3Desc">PDF डाउनलोड करें। ईमेल और WhatsApp पर भी मिलेगा।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-blue-600 text-white py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8" id="ctaTitle">आज ही शुरू करें</h2>
+            <p class="text-2xl mb-12 opacity-90" id="ctaSubtitle">अपना पहला दस्तावेज़ 5 मिनट में बनाएं</p>
+            <a href="app.html" class="inline-block bg-white text-blue-600 px-12 py-5 rounded-lg font-bold text-2xl hover:bg-gray-100 shadow-lg" id="ctaCTA">अभी बनाएं →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 py-12 border-t border-gray-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Kagzat</h3>
+                    <p class="text-lg text-gray-600 leading-relaxed" id="footTagline">कानूनी दस्तावेज़ बनाना अब हुआ आसान</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4" id="footQuick">त्वरित लिंक</h3>
+                    <div class="space-y-3">
+                        <a href="about.html" class="block text-lg text-gray-600 hover:text-blue-600" id="footAbout">हमारे बारे में</a>
+                        <a href="lawyers.html" class="block text-lg text-gray-600 hover:text-blue-600" id="footLawyers">वकील पैनल</a>
+                        <a href="contact.html" class="block text-lg text-gray-600 hover:text-blue-600" id="footContact">संपर्क करें</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4" id="footContactTitle">संपर्क</h3>
+                    <p class="text-lg text-gray-600 leading-relaxed">ईमेल: mca.shakeb@gmail.com<br>फोन: +91 98730 20789</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-300 pt-8 text-center">
+                <p class="text-lg text-gray-600" id="footCopyright">© 2026 Kagzat. सर्वाधिकार सुरक्षित।</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentLang = 'hi';
+        
+        const translations = {
+            hi: {
+                nav: {
+                    home: 'होम',
+                    app: 'दस्तावेज़ बनाएं',
+                    about: 'हमारे बारे में',
+                    lawyers: 'वकील पैनल',
+                    contact: 'संपर्क',
+                    start: 'शुरू करें →'
+                },
+                hero: {
+                    title: 'कानूनी दस्तावेज़<br class="md:hidden"> 5 मिनट में बनाएं',
+                    subtitle: 'शपथपत्र, एनओसी और अन्य कागज़ात<br>बिल्कुल मुफ्त',
+                    cta: 'अभी बनाएं →'
+                },
+                features: {
+                    title: 'क्यों चुनें Kagzat?',
+                    feature1: {
+                        title: 'तेज़ और आसान',
+                        desc: 'केवल 5 मिनट में दस्तावेज़ तैयार। कोई झंझट नहीं।'
+                    },
+                    feature2: {
+                        title: 'कानूनी रूप से मान्य',
+                        desc: 'वकीलों द्वारा जांचे गए फॉर्मेट। हर बैंक और कोर्ट में मान्य।'
+                    },
+                    feature3: {
+                        title: 'बिल्कुल मुफ्त',
+                        desc: 'कोई छुपा हुआ शुल्क नहीं। पूरी तरह से निःशुल्क सेवा।'
+                    }
+                },
+                howItWorks: {
+                    title: 'कैसे काम करता है?',
+                    step1: {
+                        title: 'फॉर्म भरें',
+                        desc: 'अपनी जानकारी दर्ज करें। आधार अपलोड करके ऑटो-फिल भी कर सकते हैं।'
+                    },
+                    step2: {
+                        title: 'प्रीव्यू देखें',
+                        desc: 'लाइव प्रीव्यू में अपना दस्तावेज़ देखें। सब कुछ सही है या नहीं जांचें।'
+                    },
+                    step3: {
+                        title: 'डाउनलोड करें',
+                        desc: 'PDF डाउनलोड करें। ईमेल और WhatsApp पर भी मिलेगा।'
+                    }
+                },
+                cta: {
+                    title: 'आज ही शुरू करें',
+                    subtitle: 'अपना पहला दस्तावेज़ 5 मिनट में बनाएं',
+                    button: 'अभी बनाएं →'
+                },
+                footer: {
+                    tagline: 'कानूनी दस्तावेज़ बनाना अब हुआ आसान',
+                    quickLinks: 'त्वरित लिंक',
+                    contact: 'संपर्क',
+                    copyright: '© 2026 Kagzat. सर्वाधिकार सुरक्षित।'
+                }
+            },
+            en: {
+                nav: {
+                    home: 'Home',
+                    app: 'Create Document',
+                    about: 'About Us',
+                    lawyers: 'Lawyer Panel',
+                    contact: 'Contact',
+                    start: 'Get Started →'
+                },
+                hero: {
+                    title: 'Create Legal Documents<br class="md:hidden"> in 5 Minutes',
+                    subtitle: 'Affidavits, NOCs and other documents<br>Completely Free',
+                    cta: 'Create Now →'
+                },
+                features: {
+                    title: 'Why Choose Kagzat?',
+                    feature1: {
+                        title: 'Fast and Easy',
+                        desc: 'Document ready in just 5 minutes. No hassle.'
+                    },
+                    feature2: {
+                        title: 'Legally Valid',
+                        desc: 'Formats verified by lawyers. Accepted at all banks and courts.'
+                    },
+                    feature3: {
+                        title: 'Completely Free',
+                        desc: 'No hidden charges. Totally free service.'
+                    }
+                },
+                howItWorks: {
+                    title: 'How It Works?',
+                    step1: {
+                        title: 'Fill Form',
+                        desc: 'Enter your information. Auto-fill by uploading Aadhaar.'
+                    },
+                    step2: {
+                        title: 'Preview',
+                        desc: 'View your document in live preview. Verify everything is correct.'
+                    },
+                    step3: {
+                        title: 'Download',
+                        desc: 'Download PDF. Also sent via email and WhatsApp.'
+                    }
+                },
+                cta: {
+                    title: 'Get Started Today',
+                    subtitle: 'Create your first document in 5 minutes',
+                    button: 'Create Now →'
+                },
+                footer: {
+                    tagline: 'Making legal documents easy',
+                    quickLinks: 'Quick Links',
+                    contact: 'Contact',
+                    copyright: '© 2026 Kagzat. All rights reserved.'
+                }
+            }
+        };
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'hi' ? 'en' : 'hi';
+            updateContent();
+        }
+        
+        function updateContent() {
+            const t = translations[currentLang];
+            
+            // Update language toggle buttons
+            document.getElementById('langToggle').textContent = currentLang === 'hi' ? 'English' : 'हिंदी';
+            document.getElementById('mobileLangToggle').textContent = currentLang === 'hi' ? 'English' : 'हिंदी';
+            
+            // Update navigation
+            document.getElementById('nav1').textContent = t.nav.home;
+            document.getElementById('nav2').textContent = t.nav.app;
+            document.getElementById('nav3').textContent = t.nav.about;
+            document.getElementById('nav4').textContent = t.nav.lawyers;
+            document.getElementById('nav5').textContent = t.nav.contact;
+            document.getElementById('navCTA').textContent = t.nav.start;
+            
+            // Update mobile navigation
+            document.getElementById('mobNav1').textContent = t.nav.home;
+            document.getElementById('mobNav2').textContent = t.nav.app;
+            document.getElementById('mobNav3').textContent = t.nav.about;
+            document.getElementById('mobNav4').textContent = t.nav.lawyers;
+            document.getElementById('mobNav5').textContent = t.nav.contact;
+            document.getElementById('mobCTA').textContent = t.nav.start;
+            
+            // Update hero section
+            document.getElementById('heroTitle').innerHTML = t.hero.title;
+            document.getElementById('heroSubtitle').innerHTML = t.hero.subtitle;
+            document.getElementById('heroCTA').textContent = t.hero.cta;
+            
+            // Update features section
+            document.getElementById('featTitle').textContent = t.features.title;
+            document.getElementById('feat1Title').textContent = t.features.feature1.title;
+            document.getElementById('feat1Desc').textContent = t.features.feature1.desc;
+            document.getElementById('feat2Title').textContent = t.features.feature2.title;
+            document.getElementById('feat2Desc').textContent = t.features.feature2.desc;
+            document.getElementById('feat3Title').textContent = t.features.feature3.title;
+            document.getElementById('feat3Desc').textContent = t.features.feature3.desc;
+            
+            // Update how it works section
+            document.getElementById('howTitle').textContent = t.howItWorks.title;
+            document.getElementById('step1Title').textContent = t.howItWorks.step1.title;
+            document.getElementById('step1Desc').textContent = t.howItWorks.step1.desc;
+            document.getElementById('step2Title').textContent = t.howItWorks.step2.title;
+            document.getElementById('step2Desc').textContent = t.howItWorks.step2.desc;
+            document.getElementById('step3Title').textContent = t.howItWorks.step3.title;
+            document.getElementById('step3Desc').textContent = t.howItWorks.step3.desc;
+            
+            // Update CTA section
+            document.getElementById('ctaTitle').textContent = t.cta.title;
+            document.getElementById('ctaSubtitle').textContent = t.cta.subtitle;
+            document.getElementById('ctaCTA').textContent = t.cta.button;
+            
+            // Update footer
+            document.getElementById('footTagline').textContent = t.footer.tagline;
+            document.getElementById('footQuick').textContent = t.footer.quickLinks;
+            document.getElementById('footAbout').textContent = t.nav.about;
+            document.getElementById('footLawyers').textContent = t.nav.lawyers;
+            document.getElementById('footContact').textContent = t.nav.contact;
+            document.getElementById('footContactTitle').textContent = t.footer.contact;
+            document.getElementById('footCopyright').textContent = t.footer.copyright;
+        }
+        
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+    </script>
+
+<script>
+let currentLang=sessionStorage.getItem("lang")||"hi";
+
+function toggleLanguage(){
+ currentLang=currentLang==="hi"?"en":"hi";
+ sessionStorage.setItem("lang",currentLang);
+ updateContent();
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+ updateContent();
+});
+</script>
+
+
+<script>
+function openPreview(){
+ const code=prompt("Enter Preview Code:");
+ if(code==="111000"){
+  document.getElementById("previewModal").classList.remove("hidden");
+ }else{
+  alert("Invalid Code. Please Register.");
+ }
+}
+function closePreview(){
+ document.getElementById("previewModal").classList.add("hidden");
+}
+</script>
+
+<div id="previewModal" class="fixed inset-0 bg-black bg-opacity-60 hidden flex items-center justify-center">
+ <div class="bg-white p-6 rounded-lg w-96">
+  <h3 class="text-xl font-bold mb-3">Document Preview</h3>
+  <p><b>Name:</b> Demo User</p>
+  <p><b>Type:</b> Affidavit</p>
+  <p><b>Status:</b> Ready</p>
+  <button onclick="closePreview()" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded">Close</button>
+ </div>
+</div>
+
+</body>
+</html>

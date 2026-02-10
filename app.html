@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>दस्तावेज़ बनाएं - Kagzat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+        * { font-family: 'Noto Sans Devanagari', sans-serif; }
+        html { scroll-behavior: smooth; }
+        
+        /* Print styles for preview */
+        @media print {
+            .no-print { display: none; }
+            .preview-content { padding: 2cm; }
+        }
+    </style>
+
+<style>
+body{font-size:15px;}
+.text-xl{font-size:1rem!important;}
+.text-2xl{font-size:1.2rem!important;}
+.text-3xl{font-size:1.4rem!important;}
+.text-4xl{font-size:1.7rem!important;}
+.text-5xl{font-size:2rem!important;}
+</style>
+
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Navigation (same as home) -->
+    <nav class="border-b border-gray-200 bg-white sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-3xl font-bold text-blue-600">Kagzat</a>
+                
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 text-lg font-medium" id="nav1">होम</a>
+                    <a href="app.html" class="text-blue-600 text-lg font-bold" id="nav2">दस्तावेज़ बनाएं</a>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-600 text-lg font-medium" id="nav3">हमारे बारे में</a>
+                    <a href="lawyers.html" class="text-gray-700 hover:text-blue-600 text-lg font-medium" id="nav4">वकील पैनल</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-600 text-lg font-medium" id="nav5">संपर्क</a>
+                </div>
+                
+                <button onclick="toggleLanguage()" class="hidden md:block text-gray-700 hover:text-blue-600 text-lg font-medium underline" id="langToggle">
+                    English
+                </button>
+                
+                <button onclick="toggleMobileMenu()" class="md:hidden">
+                    <svg class="w-8 h-8 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200 bg-white">
+            <div class="px-6 py-6 space-y-5">
+                <a href="index.html" class="block text-gray-700 text-xl font-medium" id="mobNav1">होम</a>
+                <a href="app.html" class="block text-blue-600 text-xl font-bold" id="mobNav2">दस्तावेज़ बनाएं</a>
+                <a href="about.html" class="block text-gray-700 text-xl font-medium" id="mobNav3">हमारे बारे में</a>
+                <a href="lawyers.html" class="block text-gray-700 text-xl font-medium" id="mobNav4">वकील पैनल</a>
+                <a href="contact.html" class="block text-gray-700 text-xl font-medium" id="mobNav5">संपर्क</a>
+                <button onclick="toggleLanguage()" class="text-blue-600 hover:text-blue-700 text-xl font-medium underline" id="mobileLangToggle">
+                    English
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        
+        <!-- Page Title -->
+        <div class="mb-8 text-center md:text-left">
+            <h1 class="text-4xl font-bold text-gray-900 mb-2" id="pageTitle">आधार में नाम बदलने का शपथपत्र</h1>
+            <p class="text-xl text-gray-600" id="pageSubtitle">नीचे फॉर्म भरें, दाईं ओर प्रीव्यू देखें</p>
+        </div>
+
+        <!-- Two Column Layout (Desktop) / Stacked (Mobile) -->
+        <div class="grid md:grid-cols-2 gap-8">
+            
+            <!-- LEFT: FORM -->
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4" id="formTitle">अपनी जानकारी दर्ज करें</h2>
+                    
+                    <!-- Auto-fill button -->
+                    <button onclick="showComingSoon()" class="w-full bg-blue-50 border-2 border-dashed border-blue-300 text-blue-600 px-6 py-4 rounded-lg font-semibold text-lg hover:bg-blue-100 mb-6">
+                        <span id="uploadBtn">📤 आधार अपलोड करें (ऑटो-फिल)</span>
+                    </button>
+                    
+                    <div class="text-center text-gray-500 text-sm mb-6" id="orText">या मैन्युअल भरें</div>
+                </div>
+
+                <form id="affidavitForm" class="space-y-5">
+                    
+                    <!-- Field 1: Current Name -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-2" id="label1">
+                            वर्तमान नाम (आधार में जैसा है)
+                        </label>
+                        <input type="text" id="currentName" oninput="updatePreview()" 
+                               class="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
+                               placeholder="उदाहरण: राम प्रसाद शर्मा">
+                    </div>
+
+                    <!-- Field 2: New Name -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-2" id="label2">
+                            सही/नया नाम
+                        </label>
+                        <input type="text" id="newName" oninput="updatePreview()" 
+                               class="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
+                               placeholder="उदाहरण: रामप्रसाद शर्मा">
+                    </div>
+
+                    <!-- Field 3: Father/Husband Name -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-2" id="label3">
+                            पिता/पति का नाम
+                        </label>
+                        <input type="text" id="fatherName" oninput="updatePreview()" 
+                               class="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
+                               placeholder="उदाहरण: मोहन लाल शर्मा">
+                    </div>
+
+                    <!-- Field 4: Age -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-2" id="label4">
+                            उम्र
+                        </label>
+                        <input type="number" id="age" oninput="updatePreview()" 
+                               class="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
+                               placeholder="उदाहरण: 45">
+                    </div>
+
+                    <!-- Field 5: Date of Birth -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-2" id="label5">
+                            जन्म तिथि
+                        </label>
+                        <input type="date" id="dob" oninput="updatePreview()" 
+                               class="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none">
+                    </div>
+
+                    <!-- Field 6: Gender -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-2" id="label6">
+                            लिंग
+                        </label>
+                        <select id="gender" onchange="updatePreview()" 
+                                class="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none">
+                            <option value="">चुनें</option>
+                            <option value="पुरुष">पुरुष</option>
+                            <option value="महिला">महिला</option>
+                            <option value="अन्य">अन्य</option>
+                        </select>
+                    </div>
+
+                    <!-- Field 7: Address -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-2" id="label7">
+                            पूरा पता
+                        </label>
+                        <textarea id="address" oninput="updatePreview()" rows="3"
+                                  class="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
+                                  placeholder="मकान नं, गली, शहर, जिला, राज्य, पिन कोड"></textarea>
+                    </div>
+
+                    <!-- Field 8: Reason -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-2" id="label8">
+                            नाम बदलने का कारण
+                        </label>
+                        <textarea id="reason" oninput="updatePreview()" rows="2"
+                                  class="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
+                                  placeholder="उदाहरण: आधार कार्ड में स्पेलिंग गलती है"></textarea>
+                    </div>
+
+                    <!-- Field 9: Mobile -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-2" id="label9">
+                            मोबाइल नंबर
+                        </label>
+                        <input type="tel" id="mobile" oninput="updatePreview()" 
+                               class="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
+                               placeholder="उदाहरण: 9876543210">
+                    </div>
+
+                    <!-- Field 10: Aadhaar (last 4 digits) -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-2" id="label10">
+                            आधार नंबर (अंतिम 4 अंक)
+                        </label>
+                        <input type="text" id="aadhaar" oninput="updatePreview()" maxlength="4"
+                               class="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
+                               placeholder="उदाहरण: 1234">
+                    </div>
+
+                    <!-- Generate Button -->
+                    <button type="button" onclick="generatePDF()" 
+                            class="w-full bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-xl hover:bg-blue-700 mt-8">
+                        <span id="generateBtn">PDF बनाएं और डाउनलोड करें →</span>
+                    </button>
+
+                </form>
+            </div>
+
+            <!-- RIGHT: LIVE PREVIEW -->
+            <div class="bg-white p-8 rounded-lg shadow-md sticky top-24 h-fit">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6" id="previewTitle">लाइव प्रीव्यू</h2>
+                
+                <div id="livePreview" class="border-2 border-gray-300 rounded-lg p-6 bg-gray-50 text-gray-900 min-h-[600px]" style="font-size: 16px; line-height: 1.8;">
+                    <!-- Preview content will be injected here -->
+                    <div class="text-center font-bold text-xl mb-6">शपथपत्र</div>
+                    <div class="text-center mb-6">(आधार कार्ड में नाम परिवर्तन हेतु)</div>
+                    
+                    <p class="mb-4">मैं, <span id="prev_currentName" class="font-semibold">________</span>, 
+                    पुत्र/पुत्री/पति <span id="prev_fatherName" class="font-semibold">________</span>, 
+                    उम्र <span id="prev_age" class="font-semibold">__</span> वर्ष, 
+                    निवासी <span id="prev_address" class="font-semibold">________</span>, 
+                    शपथपूर्वक कहता/कहती हूँ कि:</p>
+
+                    <p class="mb-4">1. मेरा नाम आधार कार्ड में <span id="prev_currentName2" class="font-semibold">________</span> अंकित है।</p>
+
+                    <p class="mb-4">2. मेरा सही नाम <span id="prev_newName" class="font-semibold">________</span> है।</p>
+
+                    <p class="mb-4">3. मेरी जन्म तिथि <span id="prev_dob" class="font-semibold">________</span> है और मैं <span id="prev_gender" class="font-semibold">________</span> हूँ।</p>
+
+                    <p class="mb-4">4. मेरे आधार कार्ड के अंतिम 4 अंक <span id="prev_aadhaar" class="font-semibold">____</span> हैं।</p>
+
+                    <p class="mb-4">5. मेरे नाम में यह परिवर्तन निम्नलिखित कारण से आवश्यक है: <span id="prev_reason" class="font-semibold">________</span></p>
+
+                    <p class="mb-4">6. मेरा मोबाइल नंबर <span id="prev_mobile" class="font-semibold">________</span> है।</p>
+
+                    <p class="mb-6">7. उपरोक्त विवरण पूर्णतः सत्य है और मेरी जानकारी के अनुसार कोई भी तथ्य छुपाया नहीं गया है।</p>
+
+                    <div class="mt-12">
+                        <div class="text-right">
+                            <p class="mb-1">शपथ लेने वाले के हस्ताक्षर</p>
+                            <p class="font-semibold"><span id="prev_currentName3">________</span></p>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 border-t-2 border-gray-300 pt-6">
+                        <p class="font-bold mb-2">सत्यापन</p>
+                        <p>मैं उपरोक्त शपथपत्र की विषय-वस्तु को सत्य मानता/मानती हूँ।</p>
+                        <p class="mt-4">स्थान: __________</p>
+                        <p>दिनांक: __________</p>
+                        <div class="text-right mt-4">
+                            <p class="font-semibold"><span id="prev_currentName4">________</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="generatePDF()" class="w-full bg-green-600 text-white px-6 py-3 rounded-lg font-bold text-lg hover:bg-green-700 mt-6">
+                    <span id="previewBtn">पूर्ण स्क्रीन में देखें →</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Fullscreen PDF Preview Modal -->
+    <div id="pdfModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col">
+            <!-- Modal Header -->
+            <div class="no-print flex justify-between items-center p-6 border-b border-gray-200">
+                <h3 class="text-2xl font-bold text-gray-900" id="modalTitle">आपका शपथपत्र तैयार है</h3>
+                <button onclick="closePDFModal()" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Modal Body (Scrollable Preview) -->
+            <div class="flex-1 overflow-y-auto p-8 preview-content" id="modalPreview">
+                <!-- Same content as live preview -->
+            </div>
+
+            <!-- Modal Footer (Download Options) -->
+            <div class="no-print border-t border-gray-200 p-6 bg-gray-50">
+                <div class="space-y-4">
+                    <div class="text-center text-lg font-semibold text-gray-900" id="downloadText">
+                        डाउनलोड के लिए अपना ईमेल और मोबाइल नंबर दर्ज करें
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input type="email" id="downloadEmail" 
+                               class="px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
+                               placeholder="आपका ईमेल">
+                        <input type="tel" id="downloadMobile" 
+                               class="px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
+                               placeholder="मोबाइल नंबर (WhatsApp)">
+                    </div>
+                    <button onclick="downloadPDF()" 
+                            class="w-full bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-xl hover:bg-blue-700">
+                        <span id="downloadBtn">📥 PDF डाउनलोड करें (ईमेल + WhatsApp पर भी भेजें)</span>
+                    </button>
+                    <p class="text-center text-sm text-gray-600" id="privacyText">
+                        हम आपकी जानकारी सुरक्षित रखते हैं। कोई स्पैम नहीं।
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'hi';
+
+        // Translation data
+        const translations = {
+            hi: {
+                // (Same translation structure as index.html - abbreviated for space)
+                nav: { home: 'होम', app: 'दस्तावेज़ बनाएं', about: 'हमारे बारे में', lawyers: 'वकील पैनल', contact: 'संपर्क' },
+                page: {
+                    title: 'आधार में नाम बदलने का शपथपत्र',
+                    subtitle: 'नीचे फॉर्म भरें, दाईं ओर प्रीव्यू देखें'
+                },
+                form: {
+                    title: 'अपनी जानकारी दर्ज करें',
+                    upload: '📤 आधार अपलोड करें (ऑटो-फिल)',
+                    or: 'या मैन्युअल भरें'
+                },
+                labels: {
+                    label1: 'वर्तमान नाम (आधार में जैसा है)',
+                    label2: 'सही/नया नाम',
+                    label3: 'पिता/पति का नाम',
+                    label4: 'उम्र',
+                    label5: 'जन्म तिथि',
+                    label6: 'लिंग',
+                    label7: 'पूरा पता',
+                    label8: 'नाम बदलने का कारण',
+                    label9: 'मोबाइल नंबर',
+                    label10: 'आधार नंबर (अंतिम 4 अंक)'
+                },
+                buttons: {
+                    generate: 'PDF बनाएं और डाउनलोड करें →',
+                    preview: 'पूर्ण स्क्रीन में देखें →',
+                    download: '📥 PDF डाउनलोड करें (ईमेल + WhatsApp पर भी भेजें)'
+                },
+                preview: { title: 'लाइव प्रीव्यू' },
+                modal: { title: 'आपका शपथपत्र तैयार है', downloadText: 'डाउनलोड के लिए अपना ईमेल और मोबाइल नंबर दर्ज करें', privacy: 'हम आपकी जानकारी सुरक्षित रखते हैं। कोई स्पैम नहीं।' }
+            },
+            en: {
+                nav: { home: 'Home', app: 'Create Document', about: 'About Us', lawyers: 'Lawyer Panel', contact: 'Contact' },
+                page: {
+                    title: 'Affidavit for Aadhaar Name Change',
+                    subtitle: 'Fill form below, see preview on right'
+                },
+                form: {
+                    title: 'Enter Your Information',
+                    upload: '📤 Upload Aadhaar (Auto-fill)',
+                    or: 'Or fill manually'
+                },
+                labels: {
+                    label1: 'Current Name (as per Aadhaar)',
+                    label2: 'Correct/New Name',
+                    label3: 'Father\'s/Husband\'s Name',
+                    label4: 'Age',
+                    label5: 'Date of Birth',
+                    label6: 'Gender',
+                    label7: 'Complete Address',
+                    label8: 'Reason for Name Change',
+                    label9: 'Mobile Number',
+                    label10: 'Aadhaar Number (last 4 digits)'
+                },
+                buttons: {
+                    generate: 'Generate PDF and Download →',
+                    preview: 'View Full Screen →',
+                    download: '📥 Download PDF (Also send via Email + WhatsApp)'
+                },
+                preview: { title: 'Live Preview' },
+                modal: { title: 'Your Affidavit is Ready', downloadText: 'Enter your email and mobile to download', privacy: 'We keep your information secure. No spam.' }
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'hi' ? 'en' : 'hi';
+            updateContent();
+        }
+
+        function updateContent() {
+            const t = translations[currentLang];
+            
+            // Toggle buttons
+            document.getElementById('langToggle').textContent = currentLang === 'hi' ? 'English' : 'हिंदी';
+            document.getElementById('mobileLangToggle').textContent = currentLang === 'hi' ? 'English' : 'हिंदी';
+            
+            // Navigation
+            ['nav1', 'nav2', 'nav3', 'nav4', 'nav5', 'mobNav1', 'mobNav2', 'mobNav3', 'mobNav4', 'mobNav5'].forEach((id, i) => {
+                const keys = Object.keys(t.nav);
+                document.getElementById(id).textContent = t.nav[keys[i % 5]];
+            });
+            
+            // Page content
+            document.getElementById('pageTitle').textContent = t.page.title;
+            document.getElementById('pageSubtitle').textContent = t.page.subtitle;
+            document.getElementById('formTitle').textContent = t.form.title;
+            document.getElementById('uploadBtn').textContent = t.form.upload;
+            document.getElementById('orText').textContent = t.form.or;
+            
+            // Labels
+            Object.keys(t.labels).forEach(key => {
+                document.getElementById(key).textContent = t.labels[key];
+            });
+            
+            // Buttons
+            document.getElementById('generateBtn').textContent = t.buttons.generate;
+            document.getElementById('previewBtn').textContent = t.buttons.preview;
+            document.getElementById('downloadBtn').textContent = t.buttons.download;
+            document.getElementById('previewTitle').textContent = t.preview.title;
+            document.getElementById('modalTitle').textContent = t.modal.title;
+            document.getElementById('downloadText').textContent = t.modal.downloadText;
+            document.getElementById('privacyText').textContent = t.modal.privacy;
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        function updatePreview() {
+            // Get form values
+            const currentName = document.getElementById('currentName').value || '________';
+            const newName = document.getElementById('newName').value || '________';
+            const fatherName = document.getElementById('fatherName').value || '________';
+            const age = document.getElementById('age').value || '__';
+            const dob = document.getElementById('dob').value || '________';
+            const gender = document.getElementById('gender').value || '________';
+            const address = document.getElementById('address').value || '________';
+            const reason = document.getElementById('reason').value || '________';
+            const mobile = document.getElementById('mobile').value || '________';
+            const aadhaar = document.getElementById('aadhaar').value || '____';
+            
+            // Update all preview placeholders
+            document.getElementById('prev_currentName').textContent = currentName;
+            document.getElementById('prev_currentName2').textContent = currentName;
+            document.getElementById('prev_currentName3').textContent = currentName;
+            document.getElementById('prev_currentName4').textContent = currentName;
+            document.getElementById('prev_newName').textContent = newName;
+            document.getElementById('prev_fatherName').textContent = fatherName;
+            document.getElementById('prev_age').textContent = age;
+            document.getElementById('prev_dob').textContent = dob;
+            document.getElementById('prev_gender').textContent = gender;
+            document.getElementById('prev_address').textContent = address;
+            document.getElementById('prev_reason').textContent = reason;
+            document.getElementById('prev_mobile').textContent = mobile;
+            document.getElementById('prev_aadhaar').textContent = aadhaar;
+        }
+
+        function generatePDF() {
+            // Copy preview content to modal
+            const previewContent = document.getElementById('livePreview').innerHTML;
+            document.getElementById('modalPreview').innerHTML = previewContent;
+            
+            // Show modal
+            document.getElementById('pdfModal').classList.remove('hidden');
+        }
+
+        function closePDFModal() {
+            document.getElementById('pdfModal').classList.add('hidden');
+        }
+
+        function downloadPDF() {
+            const email = document.getElementById('downloadEmail').value;
+            const mobile = document.getElementById('downloadMobile').value;
+            
+            if (!email || !mobile) {
+                alert('कृपया ईमेल और मोबाइल नंबर दर्ज करें / Please enter email and mobile number');
+                return;
+            }
+            
+            // In real implementation, this would:
+            // 1. Send data to backend
+            // 2. Generate actual PDF
+            // 3. Email it
+            // 4. Send WhatsApp message
+            
+            // For now, just show success message
+            alert(`✅ सफलता!\n\nPDF भेज दिया गया है:\n📧 ${email}\n📱 ${mobile} (WhatsApp)\n\nकृपया अपना ईमेल और WhatsApp चेक करें।`);
+            closePDFModal();
+        }
+
+        function showComingSoon() {
+            alert('🚀 जल्द आ रहा है!\n\nआधार अपलोड और ऑटो-फिल फीचर जल्द ही उपलब्ध होगा।\n\nअभी के लिए कृपया मैन्युअल भरें।\n\n---\n\nComing Soon!\n\nAadhaar upload and auto-fill feature will be available soon.\n\nFor now, please fill manually.');
+        }
+
+        // Initialize on load
+        updatePreview();
+    </script>
+
+<script>
+let currentLang = sessionStorage.getItem("lang") || "hi";
+
+function toggleLanguage(){
+ currentLang = currentLang==="hi"?"en":"hi";
+ sessionStorage.setItem("lang",currentLang);
+ updateContent();
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+ updateContent();
+});
+</script>
+
+</body>
+</html>

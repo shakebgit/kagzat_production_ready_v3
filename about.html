@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>हमारे बारे में - Kagzat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+        * { font-family: 'Noto Sans Devanagari', sans-serif; }
+    </style>
+
+<style>
+body{font-size:15px;}
+.text-xl{font-size:1rem!important;}
+.text-2xl{font-size:1.2rem!important;}
+.text-3xl{font-size:1.4rem!important;}
+.text-4xl{font-size:1.7rem!important;}
+.text-5xl{font-size:2rem!important;}
+</style>
+
+</head>
+<body class="bg-white">
+    
+    <!-- Navigation -->
+    <nav class="border-b border-gray-200 sticky top-0 bg-white z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-3xl font-bold text-blue-600">Kagzat</a>
+                
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 text-lg font-medium" id="nav1">होम</a>
+                    <a href="app.html" class="text-gray-700 hover:text-blue-600 text-lg font-medium" id="nav2">दस्तावेज़ बनाएं</a>
+                    <a href="about.html" class="text-blue-600 text-lg font-bold" id="nav3">हमारे बारे में</a>
+                    <a href="lawyers.html" class="text-gray-700 hover:text-blue-600 text-lg font-medium" id="nav4">वकील पैनल</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-600 text-lg font-medium" id="nav5">संपर्क</a>
+                </div>
+                
+                <button onclick="toggleLanguage()" class="hidden md:block text-gray-700 hover:text-blue-600 text-lg font-medium underline" id="langToggle">English</button>
+                
+                <button onclick="toggleMobileMenu()" class="md:hidden">
+                    <svg class="w-8 h-8 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200 bg-white">
+            <div class="px-6 py-6 space-y-5">
+                <a href="index.html" class="block text-gray-700 text-xl font-medium" id="mobNav1">होम</a>
+                <a href="app.html" class="block text-gray-700 text-xl font-medium" id="mobNav2">दस्तावेज़ बनाएं</a>
+                <a href="about.html" class="block text-blue-600 text-xl font-bold" id="mobNav3">हमारे बारे में</a>
+                <a href="lawyers.html" class="block text-gray-700 text-xl font-medium" id="mobNav4">वकील पैनल</a>
+                <a href="contact.html" class="block text-gray-700 text-xl font-medium" id="mobNav5">संपर्क</a>
+                <button onclick="toggleLanguage()" class="text-blue-600 hover:text-blue-700 text-xl font-medium underline" id="mobileLangToggle">English</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="bg-blue-600 text-white py-16">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6" id="heroTitle">हमारे बारे में</h1>
+            <p class="text-2xl opacity-90" id="heroSubtitle">कानूनी दस्तावेज़ बनाना आसान बनाने की हमारी यात्रा</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="max-w-5xl mx-auto px-6 py-16">
+        
+        <!-- What is Kagzat -->
+        <div class="mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-6" id="whatTitle">Kagzat क्या है?</h2>
+            <div class="text-xl text-gray-700 leading-relaxed space-y-4">
+                <p id="whatP1">
+                    Kagzat एक मुफ्त ऑनलाइन प्लेटफ़ॉर्म है जो आम लोगों और वकीलों के लिए कानूनी दस्तावेज़ बनाना आसान बनाता है।
+                </p>
+                <p id="whatP2">
+                    हम मानते हैं कि हर व्यक्ति को सही फॉर्मेट में, सही समय पर, बिना किसी झंझट के कानूनी दस्तावेज़ मिलने चाहिए।
+                </p>
+                <p id="whatP3">
+                    चाहे आप एक छोटे शहर में रहते हों या बड़े शहर में, Kagzat आपके लिए है।
+                </p>
+            </div>
+        </div>
+
+        <!-- Our Mission -->
+        <div class="mb-16 bg-gray-50 p-8 rounded-lg">
+            <h2 class="text-4xl font-bold text-gray-900 mb-6" id="missionTitle">हमारा मिशन</h2>
+            <div class="text-xl text-gray-700 leading-relaxed space-y-4">
+                <p id="missionP1">
+                    🎯 <strong>सरल और सुलभ:</strong> कानूनी दस्तावेज़ बनाना इतना आसान बनाना कि कोई भी 5 मिनट में कर सके।
+                </p>
+                <p id="missionP2">
+                    🎯 <strong>सभी के लिए मुफ्त:</strong> पैसे की कमी किसी को न्याय से वंचित न करे।
+                </p>
+                <p id="missionP3">
+                    🎯 <strong>हर भाषा में:</strong> हिंदी और सभी भारतीय भाषाओं में दस्तावेज़ उपलब्ध हों।
+                </p>
+                <p id="missionP4">
+                    🎯 <strong>कानूनी रूप से सही:</strong> हर दस्तावेज़ वकीलों द्वारा जांचा गया और स्वीकृत हो।
+                </p>
+            </div>
+        </div>
+
+        <!-- Our Vision -->
+        <div class="mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-6" id="visionTitle">हमारा विज़न</h2>
+            <div class="text-xl text-gray-700 leading-relaxed space-y-4">
+                <p id="visionP1">
+                    हम एक ऐसा भारत देखना चाहते हैं जहां हर व्यक्ति को कानूनी सहायता आसानी से मिल सके।
+                </p>
+                <p id="visionP2">
+                    अगले 5 वर्षों में, हम भारत के हर जिले में लोगों को मुफ्त कानूनी दस्तावेज़ सेवा प्रदान करना चाहते हैं।
+                </p>
+                <p id="visionP3">
+                    हम न केवल दस्तावेज़ बनाएंगे, बल्कि लोगों को उनके अधिकारों के बारे में शिक्षित भी करेंगे।
+                </p>
+            </div>
+        </div>
+
+        <!-- Our Plan -->
+        <div class="mb-16 bg-blue-50 p-8 rounded-lg">
+            <h2 class="text-4xl font-bold text-gray-900 mb-6" id="planTitle">हमारी योजना</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3" id="phase1Title">चरण 1 (2026): शुरुआत</h3>
+                    <ul class="text-xl text-gray-700 leading-relaxed space-y-2 ml-6">
+                        <li id="phase1L1">• 3-5 सबसे ज़रूरी शपथपत्र और दस्तावेज़</li>
+                        <li id="phase1L2">• हिंदी और अंग्रेज़ी में उपलब्ध</li>
+                        <li id="phase1L3">• टियर 3-4 शहरों में वकीलों के साथ पार्टनरशिप</li>
+                        <li id="phase1L4">• पूरी तरह से मुफ्त सेवा</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3" id="phase2Title">चरण 2 (2027): विस्तार</h3>
+                    <ul class="text-xl text-gray-700 leading-relaxed space-y-2 ml-6">
+                        <li id="phase2L1">• 20+ प्रकार के दस्तावेज़</li>
+                        <li id="phase2L2">• 10+ भारतीय भाषाओं में</li>
+                        <li id="phase2L3">• नोटरी और स्टाम्प वेंडर के साथ साझेदारी</li>
+                        <li id="phase2L4">• आधार से ऑटो-फिल सुविधा</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3" id="phase3Title">चरण 3 (2028+): पूर्ण सेवा</h3>
+                    <ul class="text-xl text-gray-700 leading-relaxed space-y-2 ml-6">
+                        <li id="phase3L1">• दस्तावेज़ निर्माण + नोटरी + डिलीवरी (पूर्ण समाधान)</li>
+                        <li id="phase3L2">• AI-संचालित कानूनी सलाहकार</li>
+                        <li id="phase3L3">• कोर्ट फाइलिंग सहायता</li>
+                        <li id="phase3L4">• हर गांव तक पहुंच</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why We Started -->
+        <div class="mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-6" id="whyTitle">हमने क्यों शुरू किया?</h2>
+            <div class="text-xl text-gray-700 leading-relaxed space-y-4">
+                <p id="whyP1">
+                    हमने देखा कि छोटे शहरों और गांवों में लोगों को एक सिंपल शपथपत्र के लिए भी बहुत परेशानी होती है।
+                </p>
+                <p id="whyP2">
+                    ₹300-500 खर्च करने पड़ते हैं, 3-4 जगह जाना पड़ता है, और फिर भी गलतियां हो जाती हैं।
+                </p>
+                <p id="whyP3">
+                    हमने सोचा - क्यों न इसे आसान, मुफ्त और सही बनाया जाए?
+                </p>
+                <p id="whyP4">
+                    और इस तरह Kagzat की शुरुआत हुई।
+                </p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center bg-blue-600 text-white p-12 rounded-lg">
+            <h2 class="text-4xl font-bold mb-6" id="ctaTitle">हमारे साथ जुड़ें</h2>
+            <p class="text-2xl mb-8" id="ctaSubtitle">अपना पहला दस्तावेज़ अभी बनाएं</p>
+            <a href="app.html" class="inline-block bg-white text-blue-600 px-12 py-5 rounded-lg font-bold text-2xl hover:bg-gray-100">
+                <span id="ctaButton">शुरू करें →</span>
+            </a>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 py-12 border-t border-gray-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Kagzat</h3>
+                    <p class="text-lg text-gray-600 leading-relaxed" id="footTagline">कानूनी दस्तावेज़ बनाना अब हुआ आसान</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4" id="footQuick">त्वरित लिंक</h3>
+                    <div class="space-y-3">
+                        <a href="index.html" class="block text-lg text-gray-600 hover:text-blue-600" id="footHome">होम</a>
+                        <a href="app.html" class="block text-lg text-gray-600 hover:text-blue-600" id="footApp">दस्तावेज़ बनाएं</a>
+                        <a href="lawyers.html" class="block text-lg text-gray-600 hover:text-blue-600" id="footLawyers">वकील पैनल</a>
+                        <a href="contact.html" class="block text-lg text-gray-600 hover:text-blue-600" id="footContact">संपर्क करें</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4" id="footContactTitle">संपर्क</h3>
+                    <p class="text-lg text-gray-600 leading-relaxed">ईमेल: support@kagzat.in<br>फोन: +91 98730 20789</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-300 pt-8 text-center">
+                <p class="text-lg text-gray-600" id="footCopyright">© 2026 Kagzat. सर्वाधिकार सुरक्षित।</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentLang = 'hi';
+        
+        const translations = {
+            hi: {
+                nav: {home: 'होम', app: 'दस्तावेज़ बनाएं', about: 'हमारे बारे में', lawyers: 'वकील पैनल', contact: 'संपर्क'},
+                hero: {title: 'हमारे बारे में', subtitle: 'कानूनी दस्तावेज़ बनाना आसान बनाने की हमारी यात्रा'},
+                what: {
+                    title: 'Kagzat क्या है?',
+                    p1: 'Kagzat एक मुफ्त ऑनलाइन प्लेटफ़ॉर्म है जो आम लोगों और वकीलों के लिए कानूनी दस्तावेज़ बनाना आसान बनाता है।',
+                    p2: 'हम मानते हैं कि हर व्यक्ति को सही फॉर्मेट में, सही समय पर, बिना किसी झंझट के कानूनी दस्तावेज़ मिलने चाहिए।',
+                    p3: 'चाहे आप एक छोटे शहर में रहते हों या बड़े शहर में, Kagzat आपके लिए है।'
+                },
+                mission: {
+                    title: 'हमारा मिशन',
+                    p1: '🎯 सरल और सुलभ: कानूनी दस्तावेज़ बनाना इतना आसान बनाना कि कोई भी 5 मिनट में कर सके।',
+                    p2: '🎯 सभी के लिए मुफ्त: पैसे की कमी किसी को न्याय से वंचित न करे।',
+                    p3: '🎯 हर भाषा में: हिंदी और सभी भारतीय भाषाओं में दस्तावेज़ उपलब्ध हों।',
+                    p4: '🎯 कानूनी रूप से सही: हर दस्तावेज़ वकीलों द्वारा जांचा गया और स्वीकृत हो।'
+                },
+                vision: {
+                    title: 'हमारा विज़न',
+                    p1: 'हम एक ऐसा भारत देखना चाहते हैं जहां हर व्यक्ति को कानूनी सहायता आसानी से मिल सके।',
+                    p2: 'अगले 5 वर्षों में, हम भारत के हर जिले में लोगों को मुफ्त कानूनी दस्तावेज़ सेवा प्रदान करना चाहते हैं।',
+                    p3: 'हम न केवल दस्तावेज़ बनाएंगे, बल्कि लोगों को उनके अधिकारों के बारे में शिक्षित भी करेंगे।'
+                },
+                plan: {
+                    title: 'हमारी योजना',
+                    phase1: {title: 'चरण 1 (2026): शुरुआत', l1: '• 3-5 सबसे ज़रूरी शपथपत्र और दस्तावेज़', l2: '• हिंदी और अंग्रेज़ी में उपलब्ध', l3: '• टियर 3-4 शहरों में वकीलों के साथ पार्टनरशिप', l4: '• पूरी तरह से मुफ्त सेवा'},
+                    phase2: {title: 'चरण 2 (2027): विस्तार', l1: '• 20+ प्रकार के दस्तावेज़', l2: '• 10+ भारतीय भाषाओं में', l3: '• नोटरी और स्टाम्प वेंडर के साथ साझेदारी', l4: '• आधार से ऑटो-फिल सुविधा'},
+                    phase3: {title: 'चरण 3 (2028+): पूर्ण सेवा', l1: '• दस्तावेज़ निर्माण + नोटरी + डिलीवरी (पूर्ण समाधान)', l2: '• AI-संचालित कानूनी सलाहकार', l3: '• कोर्ट फाइलिंग सहायता', l4: '• हर गांव तक पहुंच'}
+                },
+                why: {
+                    title: 'हमने क्यों शुरू किया?',
+                    p1: 'हमने देखा कि छोटे शहरों और गांवों में लोगों को एक सिंपल शपथपत्र के लिए भी बहुत परेशानी होती है।',
+                    p2: '₹300-500 खर्च करने पड़ते हैं, 3-4 जगह जाना पड़ता है, और फिर भी गलतियां हो जाती हैं।',
+                    p3: 'हमने सोचा - क्यों न इसे आसान, मुफ्त और सही बनाया जाए?',
+                    p4: 'और इस तरह Kagzat की शुरुआत हुई।'
+                },
+                cta: {title: 'हमारे साथ जुड़ें', subtitle: 'अपना पहला दस्तावेज़ अभी बनाएं', button: 'शुरू करें →'},
+                footer: {tagline: 'कानूनी दस्तावेज़ बनाना अब हुआ आसान', quick: 'त्वरित लिंक', contactTitle: 'संपर्क', copyright: '© 2026 Kagzat. सर्वाधिकार सुरक्षित।'}
+            },
+            en: {
+                nav: {home: 'Home', app: 'Create Document', about: 'About Us', lawyers: 'Lawyer Panel', contact: 'Contact'},
+                hero: {title: 'About Us', subtitle: 'Our journey to make legal documents easy'},
+                what: {
+                    title: 'What is Kagzat?',
+                    p1: 'Kagzat is a free online platform that makes creating legal documents easy for common people and lawyers.',
+                    p2: 'We believe everyone deserves access to legal documents in the right format, at the right time, without hassle.',
+                    p3: 'Whether you live in a small town or big city, Kagzat is for you.'
+                },
+                mission: {
+                    title: 'Our Mission',
+                    p1: '🎯 Simple & Accessible: Make legal documents so easy that anyone can create them in 5 minutes.',
+                    p2: '🎯 Free for All: Lack of money should not deny anyone justice.',
+                    p3: '🎯 Every Language: Documents available in Hindi and all Indian languages.',
+                    p4: '🎯 Legally Correct: Every document verified and approved by lawyers.'
+                },
+                vision: {
+                    title: 'Our Vision',
+                    p1: 'We want to see an India where everyone can access legal help easily.',
+                    p2: 'In the next 5 years, we want to provide free legal document services in every district of India.',
+                    p3: 'We will not only create documents but also educate people about their rights.'
+                },
+                plan: {
+                    title: 'Our Plan',
+                    phase1: {title: 'Phase 1 (2026): Beginning', l1: '• 3-5 most needed affidavits and documents', l2: '• Available in Hindi and English', l3: '• Partnership with lawyers in Tier 3-4 cities', l4: '• Completely free service'},
+                    phase2: {title: 'Phase 2 (2027): Expansion', l1: '• 20+ types of documents', l2: '• 10+ Indian languages', l3: '• Partnership with notaries and stamp vendors', l4: '• Auto-fill from Aadhaar'},
+                    phase3: {title: 'Phase 3 (2028+): Full Service', l1: '• Document + Notary + Delivery (complete solution)', l2: '• AI-powered legal advisor', l3: '• Court filing assistance', l4: '• Reach every village'}
+                },
+                why: {
+                    title: 'Why We Started?',
+                    p1: 'We saw that people in small towns and villages face lot of difficulty even for a simple affidavit.',
+                    p2: 'They have to spend ₹300-500, visit 3-4 places, and still errors happen.',
+                    p3: 'We thought - why not make it easy, free and correct?',
+                    p4: 'And this is how Kagzat started.'
+                },
+                cta: {title: 'Join Us', subtitle: 'Create your first document now', button: 'Get Started →'},
+                footer: {tagline: 'Making legal documents easy', quick: 'Quick Links', contactTitle: 'Contact', copyright: '© 2026 Kagzat. All rights reserved.'}
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'hi' ? 'en' : 'hi';
+            updateContent();
+        }
+
+        function updateContent() {
+            const t = translations[currentLang];
+            document.getElementById('langToggle').textContent = currentLang === 'hi' ? 'English' : 'हिंदी';
+            document.getElementById('mobileLangToggle').textContent = currentLang === 'hi' ? 'English' : 'हिंदी';
+            
+            ['nav1','nav2','nav3','nav4','nav5','mobNav1','mobNav2','mobNav3','mobNav4','mobNav5'].forEach((id,i)=>{
+                const keys=Object.keys(t.nav); document.getElementById(id).textContent=t.nav[keys[i%5]];
+            });
+            
+            document.getElementById('heroTitle').textContent = t.hero.title;
+            document.getElementById('heroSubtitle').textContent = t.hero.subtitle;
+            document.getElementById('whatTitle').textContent = t.what.title;
+            document.getElementById('whatP1').textContent = t.what.p1;
+            document.getElementById('whatP2').textContent = t.what.p2;
+            document.getElementById('whatP3').textContent = t.what.p3;
+            document.getElementById('missionTitle').textContent = t.mission.title;
+            document.getElementById('missionP1').innerHTML = t.mission.p1;
+            document.getElementById('missionP2').innerHTML = t.mission.p2;
+            document.getElementById('missionP3').innerHTML = t.mission.p3;
+            document.getElementById('missionP4').innerHTML = t.mission.p4;
+            document.getElementById('visionTitle').textContent = t.vision.title;
+            document.getElementById('visionP1').textContent = t.vision.p1;
+            document.getElementById('visionP2').textContent = t.vision.p2;
+            document.getElementById('visionP3').textContent = t.vision.p3;
+            document.getElementById('planTitle').textContent = t.plan.title;
+            document.getElementById('phase1Title').textContent = t.plan.phase1.title;
+            document.getElementById('phase1L1').textContent = t.plan.phase1.l1;
+            document.getElementById('phase1L2').textContent = t.plan.phase1.l2;
+            document.getElementById('phase1L3').textContent = t.plan.phase1.l3;
+            document.getElementById('phase1L4').textContent = t.plan.phase1.l4;
+            document.getElementById('phase2Title').textContent = t.plan.phase2.title;
+            document.getElementById('phase2L1').textContent = t.plan.phase2.l1;
+            document.getElementById('phase2L2').textContent = t.plan.phase2.l2;
+            document.getElementById('phase2L3').textContent = t.plan.phase2.l3;
+            document.getElementById('phase2L4').textContent = t.plan.phase2.l4;
+            document.getElementById('phase3Title').textContent = t.plan.phase3.title;
+            document.getElementById('phase3L1').textContent = t.plan.phase3.l1;
+            document.getElementById('phase3L2').textContent = t.plan.phase3.l2;
+            document.getElementById('phase3L3').textContent = t.plan.phase3.l3;
+            document.getElementById('phase3L4').textContent = t.plan.phase3.l4;
+            document.getElementById('whyTitle').textContent = t.why.title;
+            document.getElementById('whyP1').textContent = t.why.p1;
+            document.getElementById('whyP2').textContent = t.why.p2;
+            document.getElementById('whyP3').textContent = t.why.p3;
+            document.getElementById('whyP4').textContent = t.why.p4;
+            document.getElementById('ctaTitle').textContent = t.cta.title;
+            document.getElementById('ctaSubtitle').textContent = t.cta.subtitle;
+            document.getElementById('ctaButton').textContent = t.cta.button;
+            document.getElementById('footTagline').textContent = t.footer.tagline;
+            document.getElementById('footQuick').textContent = t.footer.quick;
+            document.getElementById('footHome').textContent = t.nav.home;
+            document.getElementById('footApp').textContent = t.nav.app;
+            document.getElementById('footLawyers').textContent = t.nav.lawyers;
+            document.getElementById('footContact').textContent = t.nav.contact;
+            document.getElementById('footContactTitle').textContent = t.footer.contactTitle;
+            document.getElementById('footCopyright').textContent = t.footer.copyright;
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+    </script>
+
+<script>
+let currentLang=sessionStorage.getItem("lang")||"hi";
+
+function toggleLanguage(){
+ currentLang=currentLang==="hi"?"en":"hi";
+ sessionStorage.setItem("lang",currentLang);
+ updateContent();
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+ updateContent();
+});
+</script>
+
+</body>
+</html>
